@@ -8,5 +8,13 @@ namespace PrIntAPI.Services
 {
     class ServicioDesayuno
     {
+        public DB lista;
+
+        public ServicioDesayuno()
+        {
+            lista = DB.instance;
+        }
+
+
     }
 }
