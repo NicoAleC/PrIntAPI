@@ -16,14 +16,14 @@ namespace PrIntAPI.Servicios
             lista = DB.instance;
         }
 
-        public int GetIndex(string nombre)
+        public int GetIndex(string codigo_est)
         {
-            return lista.EstudianteLista.FindIndex((x => x.nombre == nombre));
+            return lista.EstudianteLista.FindIndex((x => x.codigo_est == int.Parse(codigo_est)));
         }
 
         public bool Verificar(Estudiante c)
         {
-            return lista.EstudianteLista.Exists((x => x.nombre == c.nombre));
+            return lista.EstudianteLista.Exists((x => x.codigo_est == c.codigo_est));
         }
 
         public bool Crear(Estudiante c)
@@ -47,9 +47,9 @@ namespace PrIntAPI.Servicios
         {
             int index = GetIndex(key);
             bool existe = true;
-            if (!key.Equals(c.nombre))
+            if (!key.Equals(c.codigo_est))
             {
-                if (GetIndex(c.nombre) != -1)
+                if (GetIndex(c.codigo_est + "") != -1)
                 {
                     existe = true;
                 }
